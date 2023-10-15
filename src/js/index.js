@@ -3,7 +3,8 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
-
+const body = document.querySelector('body');
+console.log(body);
 const searchForm = document.getElementById('search-form');
 const button = document.querySelector('button');
 console.log(button);
@@ -14,7 +15,11 @@ img.src = '.src/icon.svg';
 
 button.append(img);
 const gallery = document.querySelector('.gallery');
+const buttonLoad = document.createElement('button');
+body.append(buttonLoad);
+buttonLoad.classList.add('load-more');
 const loadMoreBtn = document.querySelector('.load-more');
+console.log(loadMoreBtn);
 const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
 const URL = 'https://pixabay.com/api/';
 
