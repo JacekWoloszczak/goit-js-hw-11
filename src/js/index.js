@@ -5,6 +5,15 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 
 const searchForm = document.getElementById('search-form');
+const button = document.querySelector('button');
+console.log(button);
+const img = document.createElement('img');
+console.log(img);
+img.classList.add('button-svg');
+img.src = './assets/icon.svg';
+img.width = 50;
+img.height = 50;
+button.append(img);
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
