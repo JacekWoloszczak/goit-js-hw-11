@@ -7,7 +7,7 @@ import axios from 'axios';
 const searchForm = document.getElementById('search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
-const API_KEY = '40057119-2a70d66d0c91a3b95804f687e';
+const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
 const URL = `https://pixabay.com/api/?key=${API_KEY}&image_type=photo&orientation=horizontal&safesearch=true`;
 
 let page = 1;
