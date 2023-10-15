@@ -23,11 +23,13 @@ body {
   border-radius: 5px 0 0 5px;
   width: 300px;
 }
-.button-svg {
+.svg {
   position: absolute;
   top: 15;
+  left: 681;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 /* .search-form button[type='submit'] {
   padding: 10px 20px;
@@ -37,10 +39,7 @@ body {
   color: #fff;
   cursor: pointer;
 } */
-button {
-  width: 10px;
-  height: 10px;
-}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;

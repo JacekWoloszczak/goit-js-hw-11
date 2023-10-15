@@ -8,16 +8,9 @@ console.log(body);
 const searchForm = document.getElementById('search-form');
 const button = document.querySelector('button');
 console.log(button);
-const img = document.createElement('img');
-console.log(img);
-img.classList.add('button-svg');
-img.src = '.src/icon.svg';
 
-button.append(img);
 const gallery = document.querySelector('.gallery');
-const buttonLoad = document.createElement('button');
-body.append(buttonLoad);
-buttonLoad.classList.add('load-more');
+
 const loadMoreBtn = document.querySelector('.load-more');
 console.log(loadMoreBtn);
 const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
