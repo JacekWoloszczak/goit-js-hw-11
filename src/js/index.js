@@ -10,7 +10,7 @@ console.log(button);
 const img = document.createElement('img');
 console.log(img);
 img.classList.add('button-svg');
-img.src = './assets/icon.svg';
+img.src = '../assets/icon.svg';
 img.width = 50;
 img.height = 50;
 button.append(img);
