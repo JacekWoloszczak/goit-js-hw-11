@@ -6,6 +6,7 @@ body {
 .search-form {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   background-color: #007bff;
@@ -15,6 +16,7 @@ body {
 }
 
 .search-form input[type='text'] {
+  display: flex;
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -23,8 +25,9 @@ body {
 }
 .button-svg {
   position: absolute;
-  left: 681;
-  top: 10;
+  top: 15;
+  width: 40px;
+  height: 40px;
 }
 /* .search-form button[type='submit'] {
   padding: 10px 20px;
@@ -34,7 +37,10 @@ body {
   color: #fff;
   cursor: pointer;
 } */
-
+button {
+  width: 10px;
+  height: 10px;
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;

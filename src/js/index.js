@@ -10,14 +10,13 @@ console.log(button);
 const img = document.createElement('img');
 console.log(img);
 img.classList.add('button-svg');
-img.src = '../assets/icon.svg';
-img.width = 50;
-img.height = 50;
+img.src = '.src/icon.svg';
+
 button.append(img);
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
-const URL = `https://pixabay.com/api/?key=${API_KEY}&image_type=photo&orientation=horizontal&safesearch=true`;
+const URL = 'https://pixabay.com/api/';
 
 let page = 1;
 let searchQuery = '';
@@ -72,7 +71,7 @@ function onLoadMore() {
   page += 1;
   fetchImages()
     .then(renderGallery)
-    .then(getBoundingClientRect)
+    .then(scrollClientRect)
     .catch(
       Notiflix.Notify(
         "We're sorry, but you've reached the end of search results."
@@ -80,9 +79,8 @@ function onLoadMore() {
     );
 }
 
-function getBoundingClientRect() {
-  const { height: cardHeight } =
-    gallery.firstElementChild.getBoundingClientRect();
+function scrollClientRect() {
+  const { height: cardHeight } = gallery.firstElementChild.scrollClientRect();
   window.scrollBy({
     top: cardHeight * 2,
     behavior: 'smooth',
@@ -131,8 +129,7 @@ function clearGallery() {
   gallery.innerHTML = '';
 }
 
-const { height: cardHeight } =
-  gallery.firstElementChild.getBoundingClientRect();
+const { height: cardHeight } = gallery.firstElementChild.scrollClientRect();
 
 window.scrollBy({
   top: cardHeight * 2,
