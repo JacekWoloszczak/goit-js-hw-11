@@ -33,13 +33,13 @@ async function fetchImages() {
     } else if (hits.length > 0 && loadMoreBtn.classList.contains('is-hidden')) {
       Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
       loadMoreBtn.classList.remove('is-hidden');
-    } else if (totalHits <= page * 40) {
-      loadMoreBtn.classList.add('is-hiden');
+    }
+    if (totalHits <= page * 40) {
+      loadMoreBtn.classList.add('is-hidden');
       Notiflix.Notify.failure(
         "We're sorry, but you've reached the end of search results."
       );
     }
-
     return hits;
   } catch (error) {
     Notiflix.Notify.failure(
