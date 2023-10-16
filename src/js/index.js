@@ -2,7 +2,8 @@ import '../css/style.css';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import axios from 'axios';
+import { fetchData } from './api.js';
+
 const body = document.querySelector('body');
 console.log(body);
 const searchForm = document.getElementById('search-form');
@@ -13,8 +14,6 @@ const gallery = document.querySelector('.gallery');
 
 const loadMoreBtn = document.querySelector('.load-more');
 console.log(loadMoreBtn);
-const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
-const URL = 'https://pixabay.com/api/';
 
 let page = 1;
 let searchQuery = '';
@@ -25,18 +24,7 @@ loadMoreBtn.classList.add('is-hidden');
 
 async function fetchImages() {
   try {
-    const response = await axios.get(URL, {
-      params: {
-        key: API_KEY,
-        q: searchQuery,
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
-        per_page: 40,
-        page: page,
-      },
-    });
-    const { hits, totalHits } = response.data;
+    const { hits, totalHits } = await fetchData(searchQuery, page);
     if (hits.length === 0) {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
@@ -51,7 +39,6 @@ async function fetchImages() {
     Notiflix.Notify.failure(
       'Sorry, there was an error fetching the images. Please try again.'
     );
-    console.log(error);
   }
 }
 
@@ -126,10 +113,3 @@ function renderGallery(images) {
 function clearGallery() {
   gallery.innerHTML = '';
 }
-
-const { height: cardHeight } = gallery.firstElementChild.scrollClientRect();
-
-window.scrollBy({
-  top: cardHeight * 2,
-  behavior: 'smooth',
-});
