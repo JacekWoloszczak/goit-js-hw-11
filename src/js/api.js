@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '4005711-2a70d06d0c91a3b95804f687e';
+const API_KEY = '40057119-2a70d66d0c91a3b95804f687e ';
 const URL = 'https://pixabay.com/api/';
 
 export async function fetchData(searchQuery, page) {
@@ -18,8 +18,6 @@ export async function fetchData(searchQuery, page) {
     });
     return response.data;
   } catch (error) {
-    Notiflix.Notify.failure(
-      'Sorry, there was an error fetching the images. Please try again.'
-    );
+    return console.log(error);
   }
 }
