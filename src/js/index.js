@@ -22,7 +22,7 @@ searchForm.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onLoadMore);
 loadMoreBtn.classList.add('is-hidden');
 
-async function fetchImages(fetchData) {
+async function fetchImages() {
   try {
     const { hits, totalHits } = await fetchData(searchQuery, page);
     if (hits.length === 0) {
