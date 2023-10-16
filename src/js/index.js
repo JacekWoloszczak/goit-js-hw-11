@@ -42,14 +42,14 @@ async function fetchImages() {
   }
 }
 
-function onSearch(event) {
+async function onSearch(event) {
   event.preventDefault();
   clearGallery();
   searchQuery = event.currentTarget.elements.searchQuery.value.trim();
   page = 1;
-  fetchImages();
+  const hits = await fetchImages();
   try {
-    renderGallery;
+    renderGallery(hits);
   } catch (error) {
     Notiflix.Notify.failure(
       'Sorry, there was an error fetching the images. Please try again.'
