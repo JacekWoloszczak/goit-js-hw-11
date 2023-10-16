@@ -31,14 +31,14 @@ body {
   height: 40px;
   cursor: pointer;
 }
-/* .search-form button[type='submit'] {
+.search-form button[type='submit'] {
   padding: 10px 20px;
   background-color: #007bff;
-  border: none;
+  border: 2px solid white;
   border-radius: 0 5px 5px 0;
   color: #fff;
   cursor: pointer;
-} */
+}
 
 .gallery {
   display: flex;
