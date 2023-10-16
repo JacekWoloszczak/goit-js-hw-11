@@ -47,21 +47,27 @@ function onSearch(event) {
   clearGallery();
   searchQuery = event.currentTarget.elements.searchQuery.value.trim();
   page = 1;
-  fetchImages()
-    .then(renderGallery)
-    .catch(error => console.log(error));
+  fetchImages();
+  try {
+    renderGallery;
+  } catch (error) {
+    Notiflix.Notify.failure(
+      'Sorry, there was an error fetching the images. Please try again.'
+    );
+  }
 }
 
-function onLoadMore() {
+async function onLoadMore() {
   page += 1;
-  fetchImages()
-    .then(renderGallery)
-    .then(scrollClientRect)
-    .catch(
-      Notiflix.Notify(
-        "We're sorry, but you've reached the end of search results."
-      )
+  try {
+    const hits = await fetchImages();
+    renderGallery(hits);
+    scrollClientRect(hits);
+  } catch (error) {
+    Notiflix.Notify.failure(
+      'Sorry, there was an error fetching the images. Please try again.'
     );
+  }
 }
 
 function scrollClientRect() {
